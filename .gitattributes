@@ -1,0 +1,10 @@
+# Default text files to LF
+* text=auto eol=lf
+
+# Shell scripts
+*.bash text eol=lf
+./bin/* text eol=lf
+./dotfiles/* text eol=lf
+
+# Makefile
+Makefile text eol=lf

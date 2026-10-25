@@ -1,0 +1,20 @@
+# Temporary files
+*~
+*.swp
+*.bak
+*.orig
+*.tmp
+*.temp
+
+# Editor and IDE settings
+.vscode/
+.idea/
+.zed/
+
+# Logs
+*.log
+logs/
+
+# Operating system files
+.DS_Store
+Thumbs.db
