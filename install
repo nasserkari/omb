@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+URL="https://raw.githubusercontent.com/nasserkari/omb/main/dotfiles"
+FILES=(.bashrc .bash_aliases)
+
+COLOR_RED=''
+COLOR_GREEN=''
+COLOR_WHITE=''
+STYLE_RESET=''
+
+if [[ -t 1 ]]; then
+    COLOR_RED=$'\033[31m'
+    COLOR_GREEN=$'\033[32m'
+    COLOR_WHITE=$'\033[97m'
+    STYLE_RESET=$'\033[0m'
+fi
+
+# Messages
+info() {
+    echo -e "${COLOR_WHITE}$*${STYLE_RESET}"
+}
+
+success() {
+    echo -e "${COLOR_GREEN}$*${STYLE_RESET}"
+}
+
+error() {
+    echo -e "${COLOR_RED}$*${STYLE_RESET}" >&2
+    exit 1
+}
+
+# Download
+fetch() {
+    curl -fsSL "$URL/$1" -o "$HOME/$1"
+}
+
+# Install
+for file in "${FILES[@]}"; do
+    info "Installing $file"
+    if fetch "$file"; then
+        success "Installed $file"
+    else
+        error "Failed to install $file"
+    fi
+done
+
+success "Done. Run: source ~/.bashrc"
