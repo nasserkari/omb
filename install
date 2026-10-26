@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+#
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Nasser Karinganire
+
 set -euo pipefail
 
 URL="https://raw.githubusercontent.com/nasserkari/omb/main/dotfiles"

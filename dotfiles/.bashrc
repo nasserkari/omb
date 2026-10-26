@@ -1,6 +1,9 @@
-# ~/.bashrc
+# ~/.bashrc: executed by bash for non-login shells
+#
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Nasser Karinganire
 
-# Interactive only
+# If not running interactively, don't do anything
 case $- in
 *i*) ;;
 *) return ;;
